@@ -1,6 +1,5 @@
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
-set encoding=utf-8
 set pyxversion=3
 set clipboard+=unnamed
 let g:python3_host_prog="c:/Users/yongnianliu/AppData/Local/Programs/Python/Python36-32/python.exe"
@@ -117,3 +116,5 @@ xnoremap <  <gv
 xnoremap >  >gv
 map <leader>u :UndotreeToggle<cr>
 nnoremap <F5> :update<CR>:source %<CR>
+" <leader>+<space>=><Esc>
+inoremap <leader><space> <Esc>
