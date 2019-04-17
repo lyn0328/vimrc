@@ -1,9 +1,8 @@
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
-set encoding=utf-8
 set pyxversion=3
 set clipboard+=unnamed
-let g:python3_host_prog="c:/Users/yongnianliu/AppData/Local/Programs/Python/Python36-32/python.exe"
+" let g:python3_host_prog="c:/Users/yongnianliu/AppData/Local/Programs/Python/Python36-32/python.exe"
 :set number
 call plug#begin('~/.vim_runtime/my_plugins')
 Plug 'Valloric/YouCompleteMe'
@@ -31,6 +30,7 @@ Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
 Plug 'skywind3000/quickmenu.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'yianwillis/vimcdoc'
+Plug 'echuraev/translate-shell.vim'
 call plug#end()
 " let g:ycm_global_ycm_extra_conf='~/.vim_runtime/my_plugins/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 " YouCompleteMe
@@ -41,16 +41,16 @@ nnoremap <M-g> <Esc>:YcmCompleter GoToDefinition<CR>
 nnoremap <C-p> <Esc>:FZF<CR>
 
 " search word under cursor, the pattern is treated as regex, and enter normal mode directly
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " search word under cursor, the pattern is treated as regex,
 " append the result to previous search results.
-noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s ", expand("<cword>"))<CR>
+" noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s ", expand("<cword>"))<CR>
 " search word under cursor literally only in current buffer
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
+" noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
 " search visually selected text literally, don't quit LeaderF after accepting an entry
-xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
+" xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
 " recall last search. If the result window is closed, reopen it.
-noremap go :<C-U>Leaderf! rg --stayOpen --recall<CR>
+" noremap go :<C-U>Leaderf! rg --stayOpen --recall<CR>
 
 " choose a favorite key to show/hide quickmenu
 noremap <silent><F12> :call quickmenu#toggle(0)<cr>
@@ -95,7 +95,12 @@ let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 " let g:cpp_no_function_highlight = 1
 " set keywordprg="sdcv --utf8-output"
-nnoremap <leader>t :call SearchWord()<CR>
+" nnoremap <leader>t :call SearchWord()<CR>
+inoremap <silent> <leader>t <ESC>:Trans :zh<CR>
+nnoremap <silent> <leader>t :Trans :zh<CR>
+vnoremap <silent> <leader>t :Trans :zh<CR>
+nnoremap <silent> <leader>td :TransSelectDirection<CR>
+vnoremap <silent> <leader>td :TransSelectDirection<CR>
 " height ligth cusor
 set bg=dark
 set cursorline
