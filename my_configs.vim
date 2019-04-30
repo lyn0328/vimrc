@@ -33,14 +33,22 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'yianwillis/vimcdoc'
 Plug 'jremmen/vim-ripgrep'
 call plug#end()
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YouCompleteMe 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_global_ycm_extra_conf='~/.vim_runtime/my_plugins/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 " YouCompleteMe
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 " nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 " nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <M-g> <Esc>:YcmCompleter GoToDefinition<CR>
-nnoremap <C-p> <Esc>:FZF<CR>
+" nnoremap <C-p> <Esc>:FZF<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Leaderf
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " search word under cursor, the pattern is treated as regex, and enter normal mode directly
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " search word under cursor, the pattern is treated as regex,
@@ -52,7 +60,12 @@ noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expan
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
 " recall last search. If the result window is closed, reopen it.
 noremap go :<C-U>Leaderf! rg --stayOpen --recall<CR>
+nnoremap <C-p> <Esc>:LeaderfFile<CR>
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 配置 gtags 的参数
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " choose a favorite key to show/hide quickmenu
 noremap <silent><F12> :call quickmenu#toggle(0)<cr>
 
@@ -69,7 +82,6 @@ let g:gutentags_ctags_tagfile = '.tags'
 let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
 
-" 配置 ctags 的参数
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
@@ -80,7 +92,11 @@ if !isdirectory(s:vim_tags)
 endif
 
 let $GTAGSLABEL = 'native-pygments'
-let $GTAGSCONF = 'D:\software\glo663wb\share\gtags\gtags.conf'
+if has('win32')
+    let $GTAGSCONF = 'D:\software\glo663wb\share\gtags\gtags.conf'
+elseif has('unix')
+elseif has('mac')
+endif
 
 " 自动打开 quickfix window ，高度为 6
 let g:asyncrun_open = 6
