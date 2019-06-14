@@ -216,6 +216,15 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Move cursor in insert mode
+inoremap <C-j> <left> 
+inoremap <C-k> <down> 
+inoremap <C-h> <up>   
+inoremap <C-l> <right>
+
+" Exit insert mode by shortcut
+inoremap jj <ESC>
+
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
