@@ -32,18 +32,24 @@ Plug 'skywind3000/quickmenu.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'yianwillis/vimcdoc'
 Plug 'jremmen/vim-ripgrep'
+Plug 'vim-scripts/gtags.vim'
+" shader highlight
+Plug 'tikhomirov/vim-glsl'
+Plug 'beyondmarc/hlsl.vim'
+Plug 'vim-scripts/cg.vim'
 call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YouCompleteMe 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf='~/.vim_runtime/my_plugins/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf='~/.vim_runtime/my_plugins/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim_runtime/my_plugins_config/.ycm_extra_conf.py'
 " YouCompleteMe
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 " nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-" nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <M-g> <Esc>:YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" nnoremap <M-g> <Esc>:YcmCompleter GoToDefinition<CR>
 " nnoremap <C-p> <Esc>:FZF<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,6 +113,9 @@ let g:asyncrun_bell = 1
 " 设置 F10 打开/关闭 Quickfix 窗口
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 配置CPP语法高亮 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:cpp_class_scope_highlight = 3
 " let g:cpp_member_variable_highlight = 1
 " let g:cpp_class_decl_highlight = 1
@@ -114,7 +123,9 @@ nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 " let g:cpp_experimental_template_highlight = 1
 " let g:cpp_concepts_highlight = 1
 " let g:cpp_no_function_highlight = 1
+
 " set keywordprg="sdcv --utf8-output"
+
 nnoremap <leader>t :call SearchWord()<CR>
 " height ligth cusor
 set bg=dark
