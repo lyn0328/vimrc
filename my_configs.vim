@@ -43,7 +43,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YouCompleteMe 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:ycm_global_ycm_extra_conf='~/.vim_runtime/my_plugins/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+" let g:ycm_gklobal_ycm_extra_conf='~/.vim_runtime/my_plugins/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf='~/.vim_runtime/my_plugins_config/.ycm_extra_conf.py'
 " YouCompleteMe
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
@@ -143,8 +143,9 @@ set cscopeprg='gtags-cscope' " 使用 gtags-cscope 代替 cscope
 let GtagsCscope_Auto_Load = 1
 let CtagsCscope_Auto_Map = 1
 let GtagsCscope_Quiet = 1
+let g:Gtags_Auto_Map = 1
 " 防止水平滑动的时候失去选择
 xnoremap <  <gv
 xnoremap >  >gv
 map <leader>u :UndotreeToggle<cr>
-nnoremap <F5> :update<CR>:source %<CR>
+" nnoremap <F5> :update<CR>:source %<CR>
