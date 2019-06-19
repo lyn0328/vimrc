@@ -176,7 +176,7 @@ endfunc
 " => Leaderf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " search word under cursor, the pattern is treated as regex, and enter normal mode directly
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " search word under cursor, the pattern is treated as regex,
 " append the result to previous search results.
 noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s ", expand("<cword>"))<CR>
@@ -188,5 +188,6 @@ xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#vi
 noremap go :<C-U>Leaderf! rg --stayOpen --recall<CR>
 nnoremap <C-p> <Esc>:LeaderfFile<CR>
 nnoremap <s-o> :LeaderfFunction<cr>
+nnoremap <C-F> :Leaderf rg<cr>
 nnoremap <leader>o :LeaderfBuffer<cr>
 nnoremap <leader>f :LeaderfMru<cr>
