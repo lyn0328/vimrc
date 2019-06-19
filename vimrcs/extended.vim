@@ -187,7 +187,8 @@ xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#vi
 " recall last search. If the result window is closed, reopen it.
 noremap go :<C-U>Leaderf! rg --stayOpen --recall<CR>
 nnoremap <C-p> <Esc>:LeaderfFile<CR>
-nnoremap <s-o> :LeaderfFunction<cr>
-nnoremap <C-F> :Leaderf rg<cr>
+nnoremap <S-T> :LeaderfTag<cr>
+nnoremap <S-F> :LeaderfFunction<cr>
+nnoremap <c-f> :Leaderf rg<cr>
 nnoremap <leader>o :LeaderfBuffer<cr>
 nnoremap <leader>f :LeaderfMru<cr>
