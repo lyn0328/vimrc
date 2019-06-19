@@ -27,7 +27,7 @@ Plug 'tbastos/vim-lua'
 " endif
 Plug 'neovim/pynvim'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
+" Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
 Plug 'skywind3000/quickmenu.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'yianwillis/vimcdoc'
@@ -58,23 +58,6 @@ nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " nnoremap <M-g> <Esc>:YcmCompleter GoToDefinition<CR>
 " nnoremap <C-p> <Esc>:FZF<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Leaderf
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" search word under cursor, the pattern is treated as regex, and enter normal mode directly
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
-" search word under cursor, the pattern is treated as regex,
-" append the result to previous search results.
-noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s ", expand("<cword>"))<CR>
-" search word under cursor literally only in current buffer
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
-" search visually selected text literally, don't quit LeaderF after accepting an entry
-xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
-" recall last search. If the result window is closed, reopen it.
-noremap go :<C-U>Leaderf! rg --stayOpen --recall<CR>
-nnoremap <C-p> <Esc>:LeaderfFile<CR>
-nnoremap <c-s-o> :LeaderfFunction<cr>
-nnoremap <leader>o :LeaderfBuffer<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 配置 gtags 的参数
