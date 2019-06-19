@@ -37,8 +37,14 @@ Plug 'vim-scripts/gtags.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'beyondmarc/hlsl.vim'
 Plug 'vim-scripts/cg.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
+colorscheme gruvbox 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YouCompleteMe 
@@ -67,7 +73,8 @@ xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#vi
 " recall last search. If the result window is closed, reopen it.
 noremap go :<C-U>Leaderf! rg --stayOpen --recall<CR>
 nnoremap <C-p> <Esc>:LeaderfFile<CR>
-
+nnoremap <c-s-o> :LeaderfFunction<cr>
+nnoremap <leader>o :LeaderfBuffer<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 配置 gtags 的参数
@@ -149,3 +156,4 @@ xnoremap <  <gv
 xnoremap >  >gv
 map <leader>u :UndotreeToggle<cr>
 " nnoremap <F5> :update<CR>:source %<CR>
+
