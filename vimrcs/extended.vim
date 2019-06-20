@@ -172,25 +172,3 @@ func! CurrentFileDir(cmd)
 endfunc
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Leaderf
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" search word under cursor, the pattern is treated as regex, and enter normal mode directly
-" noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
-" search word under cursor, the pattern is treated as regex,
-" append the result to previous search results.
-noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s ", expand("<cword>"))<CR>
-" search word under cursor literally only in current buffer
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
-" search visually selected text literally, don't quit LeaderF after accepting an entry
-xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR>
-" recall last search. If the result window is closed, reopen it.
-noremap go :<C-U>Leaderf! rg --stayOpen --recall<CR>
-nnoremap <C-p> <Esc>:LeaderfFile<CR>
-" nnoremap <S-T> :LeaderfTag<cr>
-nnoremap <leader>ft :LeaderfTag<cr>
-" nnoremap <S-F> :LeaderfFunction<cr>
-nnoremap <leader>ff :LeaderfFunction<cr>
-nnoremap <c-f> :Leaderf rg<cr>
-nnoremap <leader>o :LeaderfBuffer<cr>
-nnoremap <leader>f :LeaderfMru<cr>
