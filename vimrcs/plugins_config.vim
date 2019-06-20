@@ -15,14 +15,6 @@ call pathogen#infect(s:vim_runtime.'/my_plugins/{}')
 call pathogen#helptags()
 
 """"""""""""""""""""""""""""""
-" => colorcheme
-""""""""""""""""""""""""""""""
-try
-    colorscheme desert 
-catch
-endtry
-
-""""""""""""""""""""""""""""""
 " => bufExplorer plugin
 """"""""""""""""""""""""""""""
 let g:bufExplorerDefaultHelp=0
