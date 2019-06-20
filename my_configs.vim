@@ -21,7 +21,6 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'beyondmarc/hlsl.vim'
 Plug 'vim-scripts/cg.vim'
 " color
-Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -141,7 +140,7 @@ nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 配置CPP语法高亮 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:cpp_class_scope_highlight = 3
+let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_simple_template_highlight = 1
