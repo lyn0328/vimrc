@@ -7,17 +7,29 @@ let g:python3_host_prog="c:/Users/yongnianliu/AppData/Local/Programs/Python/Pyth
 :set number
 call plug#begin('~/.vim_runtime/my_plugins')
 Plug 'Valloric/YouCompleteMe'
-" Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/a.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'junegunn/fzf.vim'
-Plug 'chusiang/vim-sdcv'
 Plug 'mbbill/undotree'
-" Plug 'majutsushi/tagbar'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-syntastic/syntastic'
 Plug 'tbastos/vim-lua'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'yianwillis/vimcdoc'
+Plug 'vim-scripts/gtags.vim'
+" shader highlight
+Plug 'tikhomirov/vim-glsl'
+Plug 'beyondmarc/hlsl.vim'
+Plug 'vim-scripts/cg.vim'
+" color
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'vim-scripts/taglist.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+" Plug 'junegunn/fzf.vim'
+" Plug 'chusiang/vim-sdcv'
+" Plug 'majutsushi/tagbar'
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " else
@@ -25,23 +37,12 @@ Plug 'tbastos/vim-lua'
 "   Plug 'roxma/nvim-yarp'
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
-Plug 'neovim/pynvim'
-Plug 'skywind3000/asyncrun.vim'
+" Plug 'neovim/pynvim'
 " Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
-Plug 'skywind3000/quickmenu.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'yianwillis/vimcdoc'
-Plug 'jremmen/vim-ripgrep'
-Plug 'vim-scripts/gtags.vim'
-" shader highlight
-Plug 'tikhomirov/vim-glsl'
-Plug 'beyondmarc/hlsl.vim'
-Plug 'vim-scripts/cg.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
+" Plug 'skywind3000/quickmenu.vim'
+" Plug 'jremmen/vim-ripgrep'
+" Plug 'rust-lang/rust.vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 colorscheme gruvbox 
@@ -140,17 +141,14 @@ nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 配置CPP语法高亮 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:cpp_class_scope_highlight = 3
-" let g:cpp_member_variable_highlight = 1
-" let g:cpp_class_decl_highlight = 1
-" let g:cpp_experimental_simple_template_highlight = 1
-" let g:cpp_experimental_template_highlight = 1
-" let g:cpp_concepts_highlight = 1
-" let g:cpp_no_function_highlight = 1
+let g:cpp_class_scope_highlight = 3
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
 
-" set keywordprg="sdcv --utf8-output"
-
-nnoremap <leader>t :call SearchWord()<CR>
 " height ligth cusor
 set bg=dark
 set cursorline
