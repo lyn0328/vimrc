@@ -1,10 +1,7 @@
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set termencoding=utf-8
-set encoding=utf-8
-set pyxversion=3
-set clipboard+=unnamed
-let g:python3_host_prog="c:/Users/yongnianliu/AppData/Local/Programs/Python/Python36-32/python.exe"
-:set number
+" Disable ycm
+let g:loaded_youcompleteme = 1 
+" set pyxversion=3
+" let g:python3_host_prog="c:/Users/yongnianliu/AppData/Local/Programs/Python/Python36-32/python.exe"
 call plug#begin('~/.vim_runtime/my_plugins')
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/a.vim'
@@ -13,9 +10,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-syntastic/syntastic'
 Plug 'tbastos/vim-lua'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'yianwillis/vimcdoc'
-Plug 'vim-scripts/gtags.vim'
+" Plug 'vim-scripts/gtags.vim'
 " shader highlight
 Plug 'tikhomirov/vim-glsl'
 Plug 'beyondmarc/hlsl.vim'
@@ -42,6 +39,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'jremmen/vim-ripgrep'
 " Plug 'rust-lang/rust.vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
+
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -115,36 +113,36 @@ let g:ycm_filetype_whitelist = {
 " => 配置 gtags 的参数
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " choose a favorite key to show/hide quickmenu
-noremap <silent><F12> :call quickmenu#toggle(0)<cr>
+" uoremap <silent><F12> :call quickmenu#toggle(0)<cr>
 
 " enable cursorline (L) and cmdline help (H)
-let g:quickmenu_options = "HL"
+" let g:quickmenu_options = "HL"
 
-" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+" " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+" let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 
-" 所生成的数据文件的名称
-let g:gutentags_ctags_tagfile = '.tags'
+" " 所生成的数据文件的名称
+" let g:gutentags_ctags_tagfile = '.tags'
 
-" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
-let s:vim_tags = expand('~/.cache/tags')
-let g:gutentags_cache_dir = s:vim_tags
+" " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+" let s:vim_tags = expand('~/.cache/tags')
+" let g:gutentags_cache_dir = s:vim_tags
 
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+" let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+" let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+" let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
-" 检测 ~/.cache/tags 不存在就新建
-if !isdirectory(s:vim_tags)
-   silent! call mkdir(s:vim_tags, 'p')
-endif
+" " 检测 ~/.cache/tags 不存在就新建
+" if !isdirectory(s:vim_tags)
+"    silent! call mkdir(s:vim_tags, 'p')
+" endif
 
-let $GTAGSLABEL = 'native-pygments'
-if has('win32')
-    let $GTAGSCONF = 'D:\software\glo663wb\share\gtags\gtags.conf'
-elseif has('unix')
-elseif has('mac')
-endif
+" let $GTAGSLABEL = 'native-pygments'
+" if has('win32')
+"     let $GTAGSCONF = 'D:\software\glo663wb\share\gtags\gtags.conf'
+" elseif has('unix')
+" elseif has('mac')
+" endif
 
 " 自动打开 quickfix window ，高度为 6
 let g:asyncrun_open = 6
@@ -176,16 +174,17 @@ highlight CursorColumn cterm=none ctermbg=236
 
 " let g:deoplete#enable_at_startup = 1
 
-set cscopetag " 使用 cscope 作为 tags 命令
-set cscopeprg='gtags-cscope' " 使用 gtags-cscope 代替 cscope
-"gtags.vim 设置项
-let GtagsCscope_Auto_Load = 1
-let CtagsCscope_Auto_Map = 1
-let GtagsCscope_Quiet = 1
-let g:Gtags_Auto_Map = 1
+"set cscopetag " 使用 cscope 作为 tags 命令
+"set cscopeprg='gtags-cscope' " 使用 gtags-cscope 代替 cscope
+""gtags.vim 设置项
+"let GtagsCscope_Auto_Load = 1
+"let CtagsCscope_Auto_Map = 1
+"let GtagsCscope_Quiet = 1
+"let g:Gtags_Auto_Map = 0
+" nmap <F12> :GtagsCursor<CR>
+
 " 防止水平滑动的时候失去选择
 xnoremap <  <gv
 xnoremap >  >gv
 map <leader>u :UndotreeToggle<cr>
 " nnoremap <F5> :update<CR>:source %<CR>
-
